@@ -12,7 +12,14 @@ export default new Vuex.Store({
   mutations: {
     llenarNaus(state, nausAccion) {
       state.naus = nausAccion
-    }
+      
+      // nausAccion.forEach(nau => {
+      //   const id = parseInt(nau.url.slice(32,-1))
+      //   nau.id = id
+        
+      // });
+    },
+    
   },
   
   actions: {
