@@ -1,6 +1,6 @@
 <template>
 <div class="container">
-  <Starships></Starships>
+  <Home></Home>
 </div>
 </template>
 
@@ -8,13 +8,13 @@
 
 // @ is an alias to /src
 
-import Starships from '../components/Starships.vue'
+import Home from '../components/Home.vue'
 
 export default {
 
-  name: 'Home',
+  name: 'HomeV',
   components: {
-    Starships
+    Home
   }
 }
 </script>

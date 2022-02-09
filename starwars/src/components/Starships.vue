@@ -1,12 +1,20 @@
 <template>
     <div>
-        <button @click="obtenirNaus" >Obtener naves</button>
-        <ul>
-            <li v-for="(nau, index) in $store.state.naus.results" :key="index">
-                Name: {{ nau.name }} <br>
-                Model: {{nau.model}} 
-            </li>
-        </ul>
+        <b-button @click="obtenirNaus" >Obtener naves</b-button>
+        <br>
+        <br>
+        <b-list-group>
+            <b-list-group-item variant="success" class="d-flex justify-content-start py-3 mb-3" v-for="(nau, index) in $store.state.naus.results" :key="index">
+                <div>
+                    <div class="h3 text-left">
+                        Name: {{ nau.name }}
+                    </div>
+                    <div class="h5 text-left">
+                        Model: {{nau.model}} 
+                    </div>
+                </div>
+            </b-list-group-item>
+        </b-list-group>
     </div>
 </template>
 
@@ -24,6 +32,6 @@ import { mapActions } from 'vuex'
     }
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 
 </style>
