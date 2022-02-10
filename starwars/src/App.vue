@@ -1,8 +1,11 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/StarshipsV" >Starships</router-link>
+      <div>
+        <img class="logo" src="./assets/star-wars-logo.png" alt="SWlogo">
+      </div>
+      <router-link class="navText" to="/">Home</router-link> |
+      <router-link class="navText" to="/StarshipsV" >Starships</router-link>
     </div>
     <router-view/>
   </div>
@@ -21,9 +24,19 @@
   padding: 30px;
 }
 
+.logo {
+  width: 350px;
+  margin-bottom: 20px;
+}
+
 #nav a {
   font-weight: bold;
   color: #2c3e50;
+}
+
+.navText {
+  font-size: 2rem;
+  text-decoration: none;
 }
 
 #nav a.router-link-exact-active {

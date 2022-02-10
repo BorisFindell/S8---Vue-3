@@ -1,6 +1,8 @@
 <template>
+
+
     <div>
-        Esto es el Home
+        ÉSTA ES LA PANTALLA DE BIENVENIDA
     </div>
 </template>
 

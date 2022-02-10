@@ -6,20 +6,19 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    naus:[]
+    naus:[],
   },
 
   mutations: {
     llenarNaus(state, nausAccion) {
       state.naus = nausAccion
       
-      // nausAccion.forEach(nau => {
-      //   const id = parseInt(nau.url.slice(32,-1))
-      //   nau.id = id
-        
-      // });
+      nausAccion.results.forEach(nau => {
+        let regex = new RegExp(/\d+/g)
+        nau.id = parseInt(nau.url.match(regex)[0])
+      })
     },
-    
+      
   },
   
   actions: {

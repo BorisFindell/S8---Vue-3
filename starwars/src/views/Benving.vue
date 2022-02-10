@@ -12,9 +12,16 @@ import Home from '../components/Home.vue'
 
 export default {
 
-  name: 'HomeV',
+  name: 'Benving',
   components: {
     Home
   }
 }
 </script>
+
+
+<style scoped>
+
+
+
+</style>

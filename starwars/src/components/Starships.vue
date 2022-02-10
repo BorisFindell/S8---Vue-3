@@ -4,10 +4,10 @@
             <b-list-group-item variant="success" class="d-flex justify-content-start py-3 mb-3" v-for="(nau, index) in $store.state.naus.results" :key="index">
                 <router-link class="text-decoration-none text-dark" :to="{path:'StarshipItem', query: {index}}">
                     <div>
-                        <div class="h3 text-left">
+                        <div class="h4 text-left">
                             Name: {{ nau.name }}
                         </div>
-                        <div class="h5 text-left">
+                        <div class="h6 text-left">
                             Model: {{nau.model}} 
                         </div>
                     </div>

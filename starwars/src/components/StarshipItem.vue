@@ -22,7 +22,10 @@
 
 <script>
     export default {
-        name: 'StarshipItem'
+        name: 'StarshipItem',
+        mounted(){
+        this.$store.dispatch('obtenirNaus')
+        }
     }
 </script>
 
