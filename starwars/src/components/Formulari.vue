@@ -2,7 +2,7 @@
   <div>
     <b-form @submit.prevent @reset="onReset" v-if="show">
       
-      <b-form-group id="input-group-1" label="Your Name:" label-for="input-1">
+      <b-form-group id="input-group-1" label="Name:" label-for="input-1">
         <b-form-input
           id="input-1"
           v-model="form.name"
@@ -12,11 +12,11 @@
         ></b-form-input>
       </b-form-group>
 
-      <b-form-group id="input-group-2" label="Cognom:" label-for="input-2">
+      <b-form-group id="input-group-2" label="Last name:" label-for="input-2">
         <b-form-input
           id="input-2"
           v-model="form.cog"
-          placeholder="Enter name"
+          placeholder="Enter last name"
           required
           class="w-50 m-auto"
         ></b-form-input>
@@ -24,7 +24,7 @@
       
       <b-form-group
         id="input-group-3"
-        label="Email address:"
+        label="Email:"
         label-for="input-3"
         description="We'll never share your email with anyone else."
       >
@@ -37,16 +37,16 @@
           class="w-50 m-auto"
         ></b-form-input>
       </b-form-group>
+      
 
-
-      <b-form-group id="input-group-4" label="Food:" label-for="input-4">
-        <b-form-select
+      <b-form-group id="input-group-4" label="Display name:" label-for="input-4">
+        <b-form-input
           id="input-4"
-          v-model="form.food"
-          :options="foods"
+          v-model="form.name"
+          placeholder="Enter display name"
           required
           class="w-50 m-auto"
-        ></b-form-select>
+        ></b-form-input>
       </b-form-group>
 
       <b-form-group id="input-group-5" v-slot="{ ariaDescribedby }">
@@ -55,13 +55,13 @@
           id="checkboxes-5"
           :aria-describedby="ariaDescribedby"
         >
-          <b-form-checkbox value="me">Check me out</b-form-checkbox>
-          <b-form-checkbox value="that">Check that out</b-form-checkbox>
+          <b-form-checkbox value="acept">Accept terms and conditions</b-form-checkbox>
+          <b-form-checkbox value="sub">Subscribe me 🚀!</b-form-checkbox>
         </b-form-checkbox-group>
       </b-form-group>
 
-      <b-button type="submit" variant="primary">Submit</b-button>
-      <b-button type="reset" variant="danger">Reset</b-button>
+      <b-button class="mx-2" type="submit" variant="primary">Submit</b-button>
+      <b-button class="mx-2" type="reset" variant="danger">Reset</b-button>
     </b-form>
     <b-card class="mt-3" header="Form Data Result">
       <pre class="m-0">{{ form }}</pre>
@@ -80,7 +80,6 @@
           food: null,
           checked: []
         },
-        foods: [{ text: 'Select One', value: null }, 'Carrots', 'Beans', 'Tomatoes', 'Corn'],
         show: true
       }
     },
@@ -94,7 +93,6 @@
         // Reset our form values
         this.form.email = ''
         this.form.name = ''
-        this.form.food = null
         this.form.checked = []
         // Trick to reset/clear native browser form validation state
         this.show = false

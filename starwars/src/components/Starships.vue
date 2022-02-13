@@ -14,7 +14,7 @@
                 </router-link>
             </b-list-group-item>
         </b-list-group>
-        <b-button @click="$store.dispatch('obtenirNaus')">Ver más</b-button>
+        <b-button class="mb-2" @click="$store.dispatch('obtenirNaus')">Ver más</b-button>
     </div>
 </template>
 

@@ -5,6 +5,8 @@ import StarshipsV from '../views/StarshipsV.vue'
 import StarshipItem from '../components/StarshipItem.vue'
 import Formulari from '../components/Formulari.vue'
 
+
+
 Vue.use(VueRouter)
 
 const routes = [

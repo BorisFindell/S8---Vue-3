@@ -1,11 +1,25 @@
 <template>
   <div id="app">
     <div id="nav">
-      <div class="d-flex justify-content-end">
-        <div class="border border-danger rounded-top regCont mb-2 p-3">
-          <router-link class="" to="/LogIn">LogIn</router-link>
-        </div>
-      </div>
+
+      <!-- MODAL -->
+
+
+        <button
+      type="button"
+      class="btn"
+      @click="showModal"
+    >
+      Open Modal!
+    </button>
+
+    <Modal
+      v-show="isModalVisible"
+      @close="closeModal"
+    />
+
+    <!-- MODAL -->
+
       <div class="d-flex justify-content-end">
         <div class="border border-danger rounded-bottom regCont mb-3 p-3">
           <router-link class="" to="/Formulari">Registro</router-link>
@@ -20,6 +34,31 @@
     <router-view/>
   </div>
 </template>
+
+
+<script>
+  import Modal from './components/Modal.vue';
+
+  export default {
+    name: 'App',
+    components: {
+      Modal,
+    },
+    data() {
+      return {
+        isModalVisible: false,
+      };
+    },
+    methods: {
+      showModal() {
+        this.isModalVisible = true;
+      },
+      closeModal() {
+        this.isModalVisible = false;
+      }
+    }
+  };
+</script>
 
 <style>
 #app {
