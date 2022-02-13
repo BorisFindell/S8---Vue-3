@@ -1,7 +1,7 @@
 <template>
     <div>
         <b-list-group>
-            <b-list-group-item variant="success" class="d-flex justify-content-start py-3 mb-3" v-for="(nau, index) in $store.state.naus.results" :key="index">
+            <b-list-group-item variant="success" class="d-flex justify-content-start py-3 mb-3" v-for="(nau, index) in $store.state.naus" :key="index">
                 <router-link class="text-decoration-none text-dark" :to="{path:'StarshipItem', query: {index}}">
                     <div>
                         <div class="h4 text-left">
@@ -14,6 +14,7 @@
                 </router-link>
             </b-list-group-item>
         </b-list-group>
+        <b-button @click="$store.dispatch('obtenirNaus')">Ver más</b-button>
     </div>
 </template>
 
@@ -26,7 +27,8 @@ import { mapActions } from 'vuex'
     export default {
         name: 'Starships',
         mounted(){
-        this.$store.dispatch('obtenirNaus')
+            this.$store.commit('resetStarshipList')
+            this.$store.dispatch('obtenirNaus')
         },
         methods: {
             ...mapActions(['obtenirNaus'])
