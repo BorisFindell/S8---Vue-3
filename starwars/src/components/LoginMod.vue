@@ -1,6 +1,6 @@
 <template>
-<div class="login-background">
-  <div class="loginWrapper">
+<div class="back-log">
+  <div class="loginBox">
     <div class="loginContainer">
       <div class="closeButtonWrapper">
         <button type="button" class="close btnClose" aria-label="Close" @click="$emit('onClose')">
@@ -34,9 +34,9 @@ export default {
       const userObject = JSON.parse(userJSON)
 
       if(userJSON !== null && this.password == userObject.password){
-        alert("you signed in")
+        alert("Loggeado correctamente!")
       }else{
-        alert("User, password (or both) are incorrect")
+        alert("User o password incorrecto")
       }
     },
 
@@ -45,7 +45,7 @@ export default {
 </script>
 <style scoped>
 
-.login-background{
+.back-log{
   position:absolute;
   display:flex;
   justify-content: center;
@@ -56,19 +56,16 @@ export default {
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-.loginWrapper{
-  display: flex;
-  justify-content: center;
+.loginBox{
+  z-index: 1
 }
 .loginContainer{
+  background-color: #363333;
   display:flex;
   flex-direction: column;
   justify-content: center;
-  background-color: #363333;
-  width:400px;
-  padding:20px;
-  border-style: none;
-  border-radius: 5px;;
+  width:450px;
+  padding:25px;
 }
 
 form{
@@ -101,11 +98,6 @@ h1{
 .signBtn:hover{
   background-color: gray;
   color: white;
-}
-
-.closeButtonWrapper{
-  display: flex;
-  justify-content: flex-end;
 }
 
 .btnClose {

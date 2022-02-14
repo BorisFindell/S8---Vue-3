@@ -26,7 +26,6 @@
         id="input-group-3"
         label="Email:"
         label-for="input-3"
-        description="We'll never share your email with anyone else."
       >
         <b-form-input
           id="input-3"
@@ -50,7 +49,7 @@
       </b-form-group>
       
 
-      <b-form-group id="input-group-5" label="Display name:" label-for="input-5">
+      <b-form-group class="mb-4" id="input-group-5" label="Display name:" label-for="input-5">
         <b-form-input
           id="input-5"
           v-model="form.displayName"
@@ -66,17 +65,16 @@
           id="checkboxes-6"
           :aria-describedby="ariaDescribedby"
         >
-          <b-form-checkbox class="text-color-white" value="acept">Accept terms and conditions</b-form-checkbox>
-          <b-form-checkbox value="sub">Subscribe me 🚀!</b-form-checkbox>
+          <b-form-checkbox class="text-light h5 mr-3" value="acept">Accept terms and conditions 📝</b-form-checkbox>
+          <b-form-checkbox class="text-light h5 ml-3" value="sub">Subscribe me 🚀!</b-form-checkbox>
         </b-form-checkbox-group>
       </b-form-group>
 
-      <b-button class="mx-2" type="submit" variant="primary">Submit</b-button>
-      <b-button class="mx-2" type="reset" variant="danger">Reset</b-button>
+      <b-button class="mx-2 my-4" type="submit" variant="primary">Submit</b-button>
+      <b-button class="mx-2 my-4" type="reset" variant="danger">Reset</b-button>
+
     </b-form>
-    <b-card class="mt-3" header="Form Data Result">
-      <pre class="m-0">{{ form }}</pre>
-    </b-card>
+    
   </div>
 </template>
 
@@ -99,9 +97,9 @@
     methods: {
       onSubmit() {
         const key = this.form.displayName
-        const userExists = (window.localStorage.getItem(key) !==null)
-        if(userExists){
-          alert("user already exists")
+        const userEx = (window.localStorage.getItem(key) !==null)
+        if(userEx){
+          alert("El usuario ya existe!")
         }else{
           const newUser ={
             name:this.form.name,
@@ -111,7 +109,7 @@
             password: this.form.password
           }
           window.localStorage.setItem(key, JSON.stringify(newUser))
-          alert('Nuevo usuario reg')
+          alert('Nuevo usuario registrado!')
         }
 
 
@@ -135,9 +133,3 @@
     }
   }
 </script>
-
-<style scoped>
-
-
-
-</style>

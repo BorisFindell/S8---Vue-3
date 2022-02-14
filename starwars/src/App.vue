@@ -28,8 +28,12 @@
       <div>
         <img class="logo" src="./assets/star-wars-logo.png" alt="SWlogo">
       </div>
-      <router-link class="navText text-decoration-none" to="/">Home</router-link> |
-      <router-link class="navText text-decoration-none" to="/StarshipsV" >Starships</router-link>
+      <div class="container border border-warning justify-content-center w-25">
+        <router-link class="navText text-decoration-none" to="/">Home</router-link>
+        <span class="text-light font-weight-bold h2">-</span>
+        <router-link class="navText text-decoration-none" to="/StarshipsV" >Starships</router-link>
+      </div>
+      <hr class="divider">
     </div>
     <router-view/>
   </div>
@@ -88,6 +92,11 @@ body {
   background-image: url("./assets/pexels-philippe-donn-1169754.jpeg");
   background-repeat:repeat-y;
   background-size: 100%
+}
+
+hr {
+  height: 10px;
+  background-color: whitesmoke;
 }
 
 #nav a {
