@@ -7,7 +7,8 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     naus:[],
-    nextPageUrl:"https://swapi.dev/api/starships"
+    nextPageUrl:"https://swapi.dev/api/starships",
+    modal: null
   },
 
   mutations: {
@@ -26,6 +27,13 @@ export default new Vuex.Store({
     resetStarshipList(state){
       state.naus = []
       state.nextPageUrl= "https://swapi.dev/api/starships"
+    },
+
+    closeModal(state){
+      state.modal = null
+    },
+    openModal(state, modal){
+      state.modal = modal
     }
   },
   

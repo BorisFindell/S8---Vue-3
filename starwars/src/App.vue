@@ -2,34 +2,34 @@
   <div id="app">
     <div id="nav">
 
-      <!-- MODAL -->
-
-
-        <button
-      type="button"
-      class="btn"
-      @click="showModal"
-    >
-      Open Modal!
-    </button>
-
-    <Modal
-      v-show="isModalVisible"
-      @close="closeModal"
-    />
-
-    <!-- MODAL -->
-
+<div class="header-wrapper">
+      <div class="loggedIn" v-if="$store.state.userObject">
+        <h4>Logged as: {{$store.state.userObject.username}}</h4>
+      </div>
+      <div class="nav-login" v-else>
+         
       <div class="d-flex justify-content-end">
-        <div class="border border-danger rounded-bottom regCont mb-3 p-3">
-          <router-link class="" to="/Formulari">Registro</router-link>
+        <div class="regCont">
+        <button class="btn btn-light font-weight-bold mx-2" @click="$store.commit('openModal', 'showLogin')" >LOGIN</button>
+        <router-link class="btn btn-light font-weight-bold mx-2" tag="button" to="/Formulari">REGISTER</router-link>
         </div>
       </div>
+      
+      
+      </div>
+    </div>
+
+        <LoginMod
+        v-if="$store.state.modal==='showLogin'"
+        @onClose="$store.commit('closeModal')"
+        />
+        
+      
       <div>
         <img class="logo" src="./assets/star-wars-logo.png" alt="SWlogo">
       </div>
-      <router-link class="navText" to="/">Home</router-link> |
-      <router-link class="navText" to="/StarshipsV" >Starships</router-link>
+      <router-link class="navText text-decoration-none" to="/">Home</router-link> |
+      <router-link class="navText text-decoration-none" to="/StarshipsV" >Starships</router-link>
     </div>
     <router-view/>
   </div>
@@ -37,12 +37,13 @@
 
 
 <script>
-  import Modal from './components/Modal.vue';
+
+import LoginMod from "./components/LoginMod.vue"
 
   export default {
     name: 'App',
     components: {
-      Modal,
+      LoginMod
     },
     data() {
       return {
@@ -83,14 +84,24 @@ PROTEGER LAS RUTAS?*/
   margin-bottom: 20px;
 }
 
+body {
+  background-image: url("./assets/pexels-philippe-donn-1169754.jpeg");
+  background-repeat:repeat-y;
+  background-size: 100%
+}
+
 #nav a {
   font-weight: bold;
-  color: #2c3e50;
+  color: #dbdd52;
 }
 
 .navText {
   font-size: 1.5rem;
-  text-decoration: none;
+  padding: 10px;
+}
+.navText:hover {
+  background-color: rgb(156, 156, 156, .2);
+  border-radius: 5px;
 }
 
 .navForm {
@@ -102,7 +113,8 @@ PROTEGER LAS RUTAS?*/
   width: 20%;
 }
 
+
 #nav a.router-link-exact-active {
-  color: #42b983;
+  color: #e2e7c3;
 }
 </style>
