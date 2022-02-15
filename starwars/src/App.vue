@@ -2,22 +2,14 @@
   <div id="app">
     <div id="nav">
 
-<div class="header-wrapper">
-      <div class="loggedIn" v-if="$store.state.userObject">
-        <h4>Logged as: {{$store.state.userObject.username}}</h4>
-      </div>
-      <div class="nav-login" v-else>
-         
-      <div class="d-flex justify-content-end">
-        <div class="regCont">
-        <button class="btn btn-light font-weight-bold mx-2" @click="$store.commit('openModal', 'showLogin')" >LOGIN</button>
-        <router-link class="btn btn-light font-weight-bold mx-2" tag="button" to="/Formulari">REGISTER</router-link>
+      <div class="header-wrapper">
+        <div class="d-flex justify-content-end">
+          <div class="regCont">
+            <button class="btn btn-light font-weight-bold mx-2" @click="$store.commit('openModal', 'showLogin')" >LOGIN</button>
+            <router-link class="btn btn-light font-weight-bold mx-2" tag="button" to="/Formulari">REGISTER</router-link>
+          </div>
         </div>
       </div>
-      
-      
-      </div>
-    </div>
 
         <LoginMod
         v-if="$store.state.modal==='showLogin'"
@@ -74,11 +66,6 @@ import LoginMod from "./components/LoginMod.vue"
   color: #2c3e50;
 }
 
-/* API, qué debería ser 
-POST Y GET (ES NECESARIO PUT?
-PROTEGER LAS RUTAS?*/
-
-
 #nav {
   padding: 30px;
 }
@@ -99,20 +86,6 @@ hr {
   background-color: whitesmoke;
 }
 
-#nav a {
-  font-weight: bold;
-  color: #dbdd52;
-}
-
-.navText {
-  font-size: 1.5rem;
-  padding: 10px;
-}
-.navText:hover {
-  background-color: rgb(156, 156, 156, .2);
-  border-radius: 5px;
-}
-
 .navForm {
   text-align: end;
   text-decoration: none;
@@ -122,8 +95,20 @@ hr {
   width: 20%;
 }
 
+#nav a {
+  font-weight: bold;
+  color: #e2e7c3;
+  font-size: 1.5rem;
+  padding: 5px;
+}
 
 #nav a.router-link-exact-active {
-  color: #e2e7c3;
+  color: #dbdd52;
 }
+
+#nav a:hover {
+  background-color: rgb(156, 156, 156, .2);
+  border-radius: 5px;
+}
+
 </style>

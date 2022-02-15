@@ -37,23 +37,22 @@
         ></b-form-input>
       </b-form-group>
 
-       <b-form-group id="input-group-4" label="Password:" label-for="input-4">
-        <b-form-input
-          id="input-4"
-          v-model="form.password"
-          type="password"
-          placeholder="Enter password"
-          required
-          class="w-50 m-auto py-4"
-        ></b-form-input>
-      </b-form-group>
-      
-
       <b-form-group class="mb-4" id="input-group-5" label="Display name:" label-for="input-5">
         <b-form-input
           id="input-5"
           v-model="form.displayName"
           placeholder="Enter display name"
+          required
+          class="w-50 m-auto py-4"
+        ></b-form-input>
+      </b-form-group>
+
+      <b-form-group id="input-group-4" label="Password:" label-for="input-4">
+        <b-form-input
+          id="input-4"
+          v-model="form.password"
+          type="password"
+          placeholder="Enter password"
           required
           class="w-50 m-auto py-4"
         ></b-form-input>
