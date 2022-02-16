@@ -1,6 +1,7 @@
 <template>
         <div>
-        <img :src="`https://starwars-visualguide.com/assets/img/starships/${$store.state.naus[$route.query.index].id}.jpg`" alt="">
+        
+        <img @error="$event.target.src=require('../assets/not-found.png')" :src="`https://starwars-visualguide.com/assets/img/starships/${$store.state.naus[$route.query.index].id}.jpg`" alt="foto-starship">
         <h2 class="text-light mt-4">Starship Name: {{$store.state.naus[$route.query.index].name}}</h2>
         <br>
         <b-list-group>

@@ -2,7 +2,7 @@
 <div class="back-log">
   <div class="loginBox">
     <div class="loginContainer">
-      <div class="closeButtonWrapper">
+      <div>
         <button type="button" class="close btnClose" aria-label="Close" @click="$emit('onClose')">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -11,7 +11,7 @@
       <form>
         <input type="text" v-model="username" placeholder="Username" id="username">
         <input type="password" v-model="password" placeholder="Password" id="password">
-        <button class="signBtn" @click="signIn">Enter</button>
+        <button class="signBtn" @click="LogIn">Enter</button>
       </form>
     </div>
   </div>
@@ -27,17 +27,9 @@ export default {
     }
   },
   methods:{
-    signIn(){
-
-      const key= this.username
-      const userJSON= (window.localStorage.getItem(key)) 
-      const userObject = JSON.parse(userJSON)
-
-      if(userJSON !== null && this.password == userObject.password){
-        alert("Loggeado correctamente!")
-      }else{
-        alert("User o password incorrecto")
-      }
+    LogIn(){
+      this.$store.dispatch('LogIn', [this.username,this.password])
+      
     },
 
   }

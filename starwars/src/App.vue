@@ -2,12 +2,14 @@
   <div id="app">
     <div id="nav">
 
-      <div class="header-wrapper">
-        <div class="d-flex justify-content-end">
-          <div class="regCont">
-            <button class="btn btn-light font-weight-bold mx-2" @click="$store.commit('openModal', 'showLogin')" >LOGIN</button>
-            <router-link class="btn btn-light font-weight-bold mx-2" tag="button" to="/Formulari">REGISTER</router-link>
-          </div>
+      <div class="d-flex justify-content-end">
+        <div class="text-light" v-if="$store.state.displayNameObj">
+          <h4>Logged in as: {{$store.state.displayNameObj.displayName}}</h4>
+          <b-button type="button" class="btn btn-danger" size="m" @click="logOut">Log out</b-button>
+        </div>
+        <div class="regCont" v-else>
+          <button class="btn btn-light font-weight-bold mx-2" @click="$store.commit('openModal', 'showLogin')" >LOGIN</button>
+          <router-link class="btn btn-light font-weight-bold mx-2" tag="button" to="/Formulari">REGISTER</router-link>
         </div>
       </div>
 
@@ -47,11 +49,8 @@ import LoginMod from "./components/LoginMod.vue"
       };
     },
     methods: {
-      showModal() {
-        this.isModalVisible = true;
-      },
-      closeModal() {
-        this.isModalVisible = false;
+      logOut() {
+        this.$store.commit('logOut')
       }
     }
   };
