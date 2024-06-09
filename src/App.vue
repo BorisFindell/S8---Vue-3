@@ -9,7 +9,7 @@
         </div>
         <div class="regCont" v-else>
           <button class="btn btn-light font-weight-bold mx-2" @click="$store.commit('openModal', 'showLogin')" >LOGIN</button>
-          <router-link class="btn btn-light font-weight-bold mx-2" tag="button" to="/Formulari">REGISTER</router-link>
+          <router-link class="btn btn-light font-weight-bold mx-2" to="/Formulari">REGISTER</router-link>
         </div>
       </div>
 
